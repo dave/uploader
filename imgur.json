@@ -1,0 +1,9 @@
+{
+  "type": "system:type",
+  "id": "imgur",
+  "fields": {
+    "url": {
+      "type": "system:@string"
+    }
+  }
+}
