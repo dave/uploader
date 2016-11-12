@@ -1,4 +1,4 @@
-// info:{"Path":"kego.io/demo/common/uploader","Hash":914315668069508956}
+// info:{"Path":"github.com/davelondon/uploader","Hash":18279867804444681028}
 package uploader
 
 // ke: {"file": {"notest": true}}
@@ -6,10 +6,9 @@ package uploader
 import (
 	"context"
 	"fmt"
-	"reflect"
-
 	"kego.io/context/jsonctx"
 	"kego.io/system"
+	"reflect"
 )
 
 // Automatically created basic rule for imgur
@@ -28,7 +27,7 @@ func (v *ImgurRule) Unpack(ctx context.Context, in system.Packed, iface bool) er
 	if err := v.Object.Unpack(ctx, in, false); err != nil {
 		return err
 	}
-	if err := v.Object.InitializeType("kego.io/demo/common/uploader", "@imgur"); err != nil {
+	if err := v.Object.InitializeType("github.com/davelondon/uploader", "@imgur"); err != nil {
 		return err
 	}
 	if v.Rule == nil {
@@ -41,7 +40,7 @@ func (v *ImgurRule) Unpack(ctx context.Context, in system.Packed, iface bool) er
 }
 func (v *ImgurRule) Repack(ctx context.Context) (data interface{}, typePackage string, typeName string, jsonType system.JsonType, err error) {
 	if v == nil {
-		return nil, "kego.io/demo/common/uploader", "@imgur", system.J_NULL, nil
+		return nil, "github.com/davelondon/uploader", "@imgur", system.J_NULL, nil
 	}
 	m := map[string]interface{}{}
 	if v.Object != nil {
@@ -62,7 +61,7 @@ func (v *ImgurRule) Repack(ctx context.Context) (data interface{}, typePackage s
 			m[key] = val
 		}
 	}
-	return m, "kego.io/demo/common/uploader", "@imgur", system.J_OBJECT, nil
+	return m, "github.com/davelondon/uploader", "@imgur", system.J_OBJECT, nil
 }
 
 type Imgur struct {
@@ -79,7 +78,7 @@ func (o *Imgur) GetImgur(ctx context.Context) *Imgur {
 func UnpackImgurInterface(ctx context.Context, in system.Packed) (ImgurInterface, error) {
 	switch in.Type() {
 	case system.J_MAP:
-		i, err := system.UnpackUnknownType(ctx, in, true, "kego.io/demo/common/uploader", "imgur")
+		i, err := system.UnpackUnknownType(ctx, in, true, "github.com/davelondon/uploader", "imgur")
 		if err != nil {
 			return nil, err
 		}
@@ -102,7 +101,7 @@ func (v *Imgur) Unpack(ctx context.Context, in system.Packed, iface bool) error 
 	if err := v.Object.Unpack(ctx, in, false); err != nil {
 		return err
 	}
-	if err := v.Object.InitializeType("kego.io/demo/common/uploader", "imgur"); err != nil {
+	if err := v.Object.InitializeType("github.com/davelondon/uploader", "imgur"); err != nil {
 		return err
 	}
 	if field, ok := in.Map()["url"]; ok && field.Type() != system.J_NULL {
@@ -116,7 +115,7 @@ func (v *Imgur) Unpack(ctx context.Context, in system.Packed, iface bool) error 
 }
 func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage string, typeName string, jsonType system.JsonType, err error) {
 	if v == nil {
-		return nil, "kego.io/demo/common/uploader", "imgur", system.J_NULL, nil
+		return nil, "github.com/davelondon/uploader", "imgur", system.J_NULL, nil
 	}
 	m := map[string]interface{}{}
 	if v.Object != nil {
@@ -135,11 +134,11 @@ func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage strin
 		}
 		m["url"] = ob0
 	}
-	return m, "kego.io/demo/common/uploader", "imgur", system.J_OBJECT, nil
+	return m, "github.com/davelondon/uploader", "imgur", system.J_OBJECT, nil
 }
 func init() {
-	pkg := jsonctx.InitPackage("kego.io/demo/common/uploader")
-	pkg.SetHash(914315668069508956)
+	pkg := jsonctx.InitPackage("github.com/davelondon/uploader")
+	pkg.SetHash(18279867804444681028)
 	pkg.Init(
 		"imgur",
 		func() interface{} { return new(Imgur) },

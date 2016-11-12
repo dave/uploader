@@ -67,17 +67,10 @@ func NewIconEditorView(ctx context.Context, node *node.Node, format editable.For
 	return v
 }
 
-func (v *IconEditorView) Reconcile(old vecty.Component) {
-	if old, ok := old.(*IconEditorView); ok {
-		v.Body = old.Body
-	}
-	v.ReconcileBody()
-}
-
 func (v *IconEditorView) Receive(notif flux.NotifPayload) {
 	defer close(notif.Done)
 	v.imgur = v.model.Node.Value.(*Imgur)
-	v.ReconcileBody()
+	vecty.Rerender(v)
 	if notif.Type == stores.NodeFocus {
 		v.Focus()
 	}
@@ -95,7 +88,7 @@ const (
 	IconEditorChanged iconEditorNotif = "IconEditorChanged"
 )
 
-func (v *IconEditorView) Render() vecty.Component {
+func (v *IconEditorView) Render() *vecty.HTML {
 	v.editor = editors.NewStringEditorView(v.Ctx, v.model.Node.Map["url"], editable.Inline)
 	url := ""
 	if v.imgur.Url != nil {
