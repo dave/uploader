@@ -1,15 +1,16 @@
-// info:{"Path":"github.com/davelondon/uploader","Hash":18279867804444681028}
+// info:{"Path":"github.com/davelondon/uploader","Hash":13313358115839197878}
 package uploader
 
-// ke: {"file": {"notest": true}}
-
 import (
-	"context"
-	"fmt"
-	"kego.io/context/jsonctx"
-	"kego.io/system"
-	"reflect"
+	context "context"
+	fmt "fmt"
+	reflect "reflect"
+
+	jsonctx "kego.io/context/jsonctx"
+	system "kego.io/system"
 )
+
+// ke: {"file": {"notest": true}}
 
 // Automatically created basic rule for imgur
 type ImgurRule struct {
@@ -138,13 +139,12 @@ func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage strin
 }
 func init() {
 	pkg := jsonctx.InitPackage("github.com/davelondon/uploader")
-	pkg.SetHash(18279867804444681028)
-	pkg.Init(
-		"imgur",
-		func() interface{} { return new(Imgur) },
-		nil,
-		func() interface{} { return new(ImgurRule) },
-		func() reflect.Type { return reflect.TypeOf((*ImgurInterface)(nil)).Elem() },
-	)
-
+	pkg.SetHash(0xb8c28cab4e28c2b6)
+	pkg.Init("imgur", func() interface{} {
+		return new(Imgur)
+	}, nil, func() interface{} {
+		return new(ImgurRule)
+	}, func() reflect.Type {
+		return reflect.TypeOf((*ImgurInterface)(nil)).Elem()
+	})
 }
