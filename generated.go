@@ -1,4 +1,4 @@
-// info:{"Path":"github.com/davelondon/uploader","Hash":13313358115839197878}
+// info:{"Path":"github.com/dave/uploader","Hash":13313358115839197878}
 package uploader
 
 import (
@@ -28,7 +28,7 @@ func (v *ImgurRule) Unpack(ctx context.Context, in system.Packed, iface bool) er
 	if err := v.Object.Unpack(ctx, in, false); err != nil {
 		return err
 	}
-	if err := v.Object.InitializeType("github.com/davelondon/uploader", "@imgur"); err != nil {
+	if err := v.Object.InitializeType("github.com/dave/uploader", "@imgur"); err != nil {
 		return err
 	}
 	if v.Rule == nil {
@@ -41,7 +41,7 @@ func (v *ImgurRule) Unpack(ctx context.Context, in system.Packed, iface bool) er
 }
 func (v *ImgurRule) Repack(ctx context.Context) (data interface{}, typePackage string, typeName string, jsonType system.JsonType, err error) {
 	if v == nil {
-		return nil, "github.com/davelondon/uploader", "@imgur", system.J_NULL, nil
+		return nil, "github.com/dave/uploader", "@imgur", system.J_NULL, nil
 	}
 	m := map[string]interface{}{}
 	if v.Object != nil {
@@ -62,7 +62,7 @@ func (v *ImgurRule) Repack(ctx context.Context) (data interface{}, typePackage s
 			m[key] = val
 		}
 	}
-	return m, "github.com/davelondon/uploader", "@imgur", system.J_OBJECT, nil
+	return m, "github.com/dave/uploader", "@imgur", system.J_OBJECT, nil
 }
 
 type Imgur struct {
@@ -79,7 +79,7 @@ func (o *Imgur) GetImgur(ctx context.Context) *Imgur {
 func UnpackImgurInterface(ctx context.Context, in system.Packed) (ImgurInterface, error) {
 	switch in.Type() {
 	case system.J_MAP:
-		i, err := system.UnpackUnknownType(ctx, in, true, "github.com/davelondon/uploader", "imgur")
+		i, err := system.UnpackUnknownType(ctx, in, true, "github.com/dave/uploader", "imgur")
 		if err != nil {
 			return nil, err
 		}
@@ -102,7 +102,7 @@ func (v *Imgur) Unpack(ctx context.Context, in system.Packed, iface bool) error 
 	if err := v.Object.Unpack(ctx, in, false); err != nil {
 		return err
 	}
-	if err := v.Object.InitializeType("github.com/davelondon/uploader", "imgur"); err != nil {
+	if err := v.Object.InitializeType("github.com/dave/uploader", "imgur"); err != nil {
 		return err
 	}
 	if field, ok := in.Map()["url"]; ok && field.Type() != system.J_NULL {
@@ -116,7 +116,7 @@ func (v *Imgur) Unpack(ctx context.Context, in system.Packed, iface bool) error 
 }
 func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage string, typeName string, jsonType system.JsonType, err error) {
 	if v == nil {
-		return nil, "github.com/davelondon/uploader", "imgur", system.J_NULL, nil
+		return nil, "github.com/dave/uploader", "imgur", system.J_NULL, nil
 	}
 	m := map[string]interface{}{}
 	if v.Object != nil {
@@ -135,10 +135,10 @@ func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage strin
 		}
 		m["url"] = ob0
 	}
-	return m, "github.com/davelondon/uploader", "imgur", system.J_OBJECT, nil
+	return m, "github.com/dave/uploader", "imgur", system.J_OBJECT, nil
 }
 func init() {
-	pkg := jsonctx.InitPackage("github.com/davelondon/uploader")
+	pkg := jsonctx.InitPackage("github.com/dave/uploader")
 	pkg.SetHash(0xb8c28cab4e28c2b6)
 	pkg.Init("imgur", func() interface{} {
 		return new(Imgur)

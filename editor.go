@@ -10,12 +10,12 @@ import (
 
 	"io/ioutil"
 
-	"github.com/davelondon/kerr"
-	"github.com/davelondon/vecty"
-	"github.com/davelondon/vecty/elem"
-	"github.com/davelondon/vecty/event"
-	"github.com/davelondon/vecty/prop"
-	"github.com/davelondon/vecty/style"
+	"github.com/dave/kerr"
+	"github.com/dave/vecty"
+	"github.com/dave/vecty/elem"
+	"github.com/dave/vecty/event"
+	"github.com/dave/vecty/prop"
+	"github.com/dave/vecty/style"
 	"kego.io/editor/client/actions"
 	"kego.io/editor/client/editable"
 	"kego.io/editor/client/editors"
