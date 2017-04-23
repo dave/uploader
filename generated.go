@@ -1,4 +1,4 @@
-// info:{"Path":"github.com/dave/uploader","Hash":13313358115839197878}
+// info:{"Path":"github.com/dave/uploader","Hash":15281916385306789409}
 package uploader
 
 import (
@@ -6,8 +6,8 @@ import (
 	fmt "fmt"
 	reflect "reflect"
 
-	jsonctx "kego.io/context/jsonctx"
-	system "kego.io/system"
+	jsonctx "frizz.io/context/jsonctx"
+	system "frizz.io/system"
 )
 
 // notest
@@ -139,7 +139,7 @@ func (v *Imgur) Repack(ctx context.Context) (data interface{}, typePackage strin
 }
 func init() {
 	pkg := jsonctx.InitPackage("github.com/dave/uploader")
-	pkg.SetHash(0xb8c28cab4e28c2b6)
+	pkg.SetHash(uint64(0xd41445fc416ec621))
 	pkg.Init("imgur", func() interface{} {
 		return new(Imgur)
 	}, nil, func() interface{} {
